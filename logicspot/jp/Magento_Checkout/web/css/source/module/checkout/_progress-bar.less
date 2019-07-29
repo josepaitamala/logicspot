@@ -61,7 +61,8 @@
                 }
             }
         }
-        &._active {
+        &._active,
+        &._complete {
             &:first-child {
                 > span {
                     &:before {
@@ -91,7 +92,8 @@
                 }
             }
         }
-        &._active {
+        &._active,
+        &._complete {
             // Line Active
             &:before {
                 background: @color-black;
@@ -126,7 +128,8 @@
                 }
             }
         }
-        &._active {
+        &._active,
+        &._complete {
             // Line Active
             &:before {
                 background: @color-black;
@@ -180,25 +183,11 @@
             }
         }
         
-        &._active{
+        &._active,
+        &._complete {
             > span {
                 &:after {
                     color: @color-white;
-                }
-            }
-        }
-
-        &._complete {
-            cursor: pointer;
-
-            > span {
-                .lib-css(color, @checkout-progress-bar-item__color);
-
-                &:after {
-                    .lib-css(content, @checkout-progress-bar-item-element-inner__active__content);
-                    .lib-css(font-family, @icons__font-name);
-                    .lib-css(line-height, @checkout-progress-bar-item-element-inner__active__line-height);
-                    .lib-font-size(@checkout-progress-bar-item-element-inner__active__font-size);
                 }
             }
         }
