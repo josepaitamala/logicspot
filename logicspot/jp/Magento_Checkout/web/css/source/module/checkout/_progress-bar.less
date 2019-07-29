@@ -51,7 +51,7 @@
         text-align: center;
         vertical-align: top;
         width: 33.3%;
-
+        
         
         &:first-child {
             > span {
@@ -72,6 +72,18 @@
         }
 
         &:nth-child(2) {
+            // Line
+            &:before {
+                content: '';
+                width: 100%;
+                height: 1px;
+                position: absolute;
+                top: 23px;
+                right: 50%;
+                background: @color-alto;
+                z-index: -1;
+            }
+
             > span {
                 &:before {
                     background-image: url('../images/irregular-shape-2.svg');
@@ -80,6 +92,11 @@
             }
         }
         &._active {
+            // Line Active
+            &:before {
+                background: @color-black;
+            }
+
             &:nth-child(2) {
                 > span {
                     &:before {
@@ -90,6 +107,17 @@
         }
 
         &:nth-child(3) {
+            // Line
+            &:before {
+                content: '';
+                width: 100%;
+                height: 1px;
+                position: absolute;
+                top: 20px;
+                right: 50%;
+                background: @color-alto;
+                z-index: -1;
+            }
             > span {
                 &:before {
                     background-image: url('../images/irregular-shape-3.svg');
@@ -99,6 +127,10 @@
             }
         }
         &._active {
+            // Line Active
+            &:before {
+                background: @color-black;
+            }
             &:nth-child(3) {
                 > span {
                     &:before {
@@ -126,8 +158,8 @@
 
             &:before {
                 content: '';
-                width: 46px;
-                height: 46px;
+                width: 48px;
+                height: 48px;
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -147,7 +179,14 @@
                 color: @color-alto;
             }
         }
-
+        
+        &._active{
+            > span {
+                &:after {
+                    color: @color-white;
+                }
+            }
+        }
 
         &._complete {
             cursor: pointer;
@@ -172,7 +211,7 @@
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
     .opc-progress-bar {
-        max-width: 524px;
+        max-width: 610px;
     }
     .opc-progress-bar-item {
         display: inline-block;
