@@ -1,0 +1,22 @@
+<?php
+/**
+ * Cart Steps
+ * 
+ */
+
+?>
+<div class="cart-progress-bar">
+    <!-- Hard Coded progress bar -->
+    <!-- @todo bring actual progress-bar.html here and add one more step to it so it has '1. My Basket' step -->
+    <ul class="opc-progress-bar">
+        <li class="opc-progress-bar-item _active">
+            <span><?= /* @escapeNotVerified */ __('My Basket') ?></span>
+        </li>
+        <li class="opc-progress-bar-item">
+            <span><?= /* @escapeNotVerified */ __('Delivery') ?></span>
+        </li>
+        <li class="opc-progress-bar-item">
+            <span><?= /* @escapeNotVerified */ __('Payment') ?></span>
+        </li>
+    </ul>
+</div>

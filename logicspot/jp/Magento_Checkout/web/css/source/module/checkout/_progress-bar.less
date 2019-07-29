@@ -1,0 +1,183 @@
+//
+//  Variables
+//  _____________________________________________
+
+@checkout-progress-bar__font-size: 16px;
+@checkout-progress-bar__font-weight: 400;
+@checkout-progress-bar__margin: @indent__base;
+
+@checkout-progress-bar-item__border-radius: 6px;
+@checkout-progress-bar-item__color: @primary__color;
+@checkout-progress-bar-item__margin: @indent__s;
+@checkout-progress-bar-item__width: 185px;
+@checkout-progress-bar-item__active__background-color: @color-orange-red1;
+@checkout-progress-bar-item__complete__color: @link__color;
+
+@checkout-progress-bar-item-element__height: @checkout-progress-bar-item-element__width;
+@checkout-progress-bar-item-element__width: 38px;
+
+@checkout-progress-bar-item-element-inner__background-color: @page__background-color;
+@checkout-progress-bar-item-element-inner__color: @checkout-progress-bar-item__color;
+@checkout-progress-bar-item-element-inner__height: @checkout-progress-bar-item-element-inner__width;
+@checkout-progress-bar-item-element-inner__width: @checkout-progress-bar-item-element__width - (@checkout-progress-bar-item-element-outer-radius__width * 2);
+@checkout-progress-bar-item-element-inner__active__content: @icon-checkmark;
+@checkout-progress-bar-item-element-inner__active__font-size: 28px;
+@checkout-progress-bar-item-element-inner__active__line-height: 1;
+
+@checkout-progress-bar-item-element-outer-radius__width: 6px;
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    //
+    //  Checkout Progress Bar
+    //  ---------------------------------------------
+
+    .opc-progress-bar {
+        &:extend(.abs-reset-list all);
+        margin: 0 auto;
+        counter-reset: i;
+        font-size: 0;
+        position: relative;
+    }
+
+    .opc-progress-bar-item {
+        .lib-css(margin, 0 0 @checkout-progress-bar-item__margin);
+        display: inline-block;
+        position: relative;
+        text-align: center;
+        vertical-align: top;
+        width: 33.3%;
+
+        
+        &:first-child {
+            > span {
+                &:before {
+                    background-image: url('../images/irregular-shape-1.svg');
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+        &._active {
+            &:first-child {
+                > span {
+                    &:before {
+                        background-image: url('../images/irregular-shape-1--active.svg');
+                        background-repeat: no-repeat;
+                    }
+                }
+            }
+        }
+
+        &:nth-child(2) {
+            > span {
+                &:before {
+                    background-image: url('../images/irregular-shape-2.svg');
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+        &._active {
+            &:nth-child(2) {
+                > span {
+                    &:before {
+                        background-image: url('../images/irregular-shape-2--active.svg');
+                        background-repeat: no-repeat;
+                    }
+                }
+            }
+        }
+
+        &:nth-child(3) {
+            > span {
+                &:before {
+                    background-image: url('../images/irregular-shape-3.svg');
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+        &._active {
+            &:nth-child(3) {
+                > span {
+                    &:before {
+                        background-image: url('../images/irregular-shape-3--active.svg');
+                        background-repeat: no-repeat;
+                        background-position: top 3px left 0;
+                    }
+                }
+            }
+        }
+
+        > span {
+            display: inline-block;
+            padding-top: 50px;
+            width: 100%;
+            word-wrap: break-word;
+            text-transform: uppercase;
+
+            .lib-typography(
+            @_color: @color-black,
+            @_font-family: false,
+            @_font-size: @checkout-progress-bar__font-size,
+            @_font-style: false,
+            @_font-weight: @checkout-progress-bar__font-weight,
+            @_line-height: 26px
+            );
+
+            &:before {
+                content: '';
+                width: 46px;
+                height: 46px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+            }
+
+            &:after { // Item element inner
+                content: counter(i);
+                counter-increment: i;
+                position: absolute;
+                top: 10px;
+                left: 0;
+                right: 0;
+                font-size: 1.8rem;
+                font-weight: 600;
+                color: @color-alto;
+            }
+        }
+
+
+        &._complete {
+            cursor: pointer;
+
+            > span {
+                .lib-css(color, @checkout-progress-bar-item__color);
+
+                &:after {
+                    .lib-css(content, @checkout-progress-bar-item-element-inner__active__content);
+                    .lib-css(font-family, @icons__font-name);
+                    .lib-css(line-height, @checkout-progress-bar-item-element-inner__active__line-height);
+                    .lib-font-size(@checkout-progress-bar-item-element-inner__active__font-size);
+                }
+            }
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .opc-progress-bar {
+        max-width: 524px;
+    }
+    .opc-progress-bar-item {
+        display: inline-block;
+    }
+}
