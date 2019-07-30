@@ -88,6 +88,9 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
                     <span><?= /* @escapeNotVerified */ __('Qty') ?></span>
                 </label>
                 <div class="control qty">
+                    <span class="qty-action qty-action--down js-qty-action js-qty-action--down">
+                        <span class="icon-minus"></span>
+                    </span>
                     <input id="cart-<?= /* @escapeNotVerified */ $_item->getId() ?>-qty"
                            name="cart[<?= /* @escapeNotVerified */ $_item->getId() ?>][qty]"
                            data-cart-item-id="<?= $block->escapeHtml($_item->getSku()) ?>"
@@ -96,8 +99,11 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
                            size="4"
                            title="<?= $block->escapeHtml(__('Qty')) ?>"
                            class="input-text qty"
-                           data-validate="{required:true,'validate-greater-than-zero':true}"
+                           data-validate="{required:true,'validate-greater-than-zero-no-greater-than-ten':true}"
                            data-role="cart-item-qty"/>
+                    <span class="qty-action qty-action--up js-qty-action js-qty-action--up">
+                        <span class="icon-plus"></span>
+                    </span>
                 </div>
             </div>
             <div class="actions-toolbar">

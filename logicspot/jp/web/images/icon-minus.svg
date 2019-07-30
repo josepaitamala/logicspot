@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="3px" viewBox="0 0 10 3" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>minus</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-1151.000000, -724.000000)" fill="#1B1B1C">
+            <g id="quantity" transform="translate(1151.000000, 696.000000)">
+                <path d="M9.26761559,31 L0.731879669,31 C0.327579245,31 0,30.6333208 0,30.1814592 L0,28.8179767 C0,28.3661151 0.327579245,28 0.731879669,28 L9.26761559,28 C9.67242076,28 10,28.3661151 10,28.8179767 L10,30.1814592 C10,30.6333208 9.67242076,31 9.26761559,31" id="minus"></path>
+            </g>
+        </g>
+    </g>
+</svg>
