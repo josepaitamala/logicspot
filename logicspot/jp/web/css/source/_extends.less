@@ -1077,24 +1077,6 @@
 & when (@media-common = true) {
     .abs-shopping-cart-items {
         .action {
-            &.continue {
-                border-radius: 3px;
-                font-weight: @font-weight__bold;
-                .lib-link-as-button();
-                .lib-button(
-                @_button-padding: 7px 15px 7px 0,
-                @_button-icon-use: true,
-                @_button-font-content: @icon-prev,
-                @_button-icon-font-size: 32px,
-                @_button-icon-font-line-height: 16px,
-                @_button-icon-font-position: before
-                );
-
-                &:active {
-                    .lib-css(box-shadow, @button__shadow);
-                }
-            }
-
             &.update {
                 .lib-button-icon(
                 @icon-update,

@@ -351,6 +351,30 @@
         }
     }
 
+
+    //  Cart Actions
+    .cart.actions {
+        &:extend(.abs-add-clearfix all);
+        .action.clear,
+        .action.update {
+            display: none;
+        }
+        .action.continue {
+            font-weight: @font-weight__bold;
+            display: inline-block;
+            background-color: @color-gallery;
+            line-height: 60px;
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            color: @color-rolling-stone;
+            font-size: 1.4rem;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            margin: 0;
+        }
+    }
+
     .cart-products-toolbar-top {
         border-bottom: @border-width__base solid @border-color__base;
     }
