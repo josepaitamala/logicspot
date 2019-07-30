@@ -32,16 +32,17 @@ define([
 
             qtyItems.each( function(i,el) {
                 var jsQtyAction = $(el).find('.js-qty-action'),
-                    qtyInput = $(el).find('[data-role=cart-item-qty]');
+                    qtyInput = $(el).find('[data-role=cart-item-qty]'),
+                    timer = null,
+                    updateCart = function() {
+                        $(self.element).find('.action.update').trigger('click');
+                        timer = null;
+                    };
 
                 jsQtyAction.on('click', function(e) {
                     var qty = qtyInput.val().trim(),
-                        qty = parseInt(qty),
-                        timer = null,
-                        updateCart = function() {
-                            $(self.element).find('.action.update').trigger('click');
-                            timer = null;
-                        };
+                        qty = parseInt(qty);
+                        
 
                     if ($(this).hasClass('js-qty-action--up')) {
                         //console.log(qty);
@@ -66,6 +67,14 @@ define([
                             timer = setTimeout(updateCart, 2000);
                         }
                     }
+                });
+
+                qtyInput.on('keyup', function(e) {
+                    if(timer) {
+                        clearTimeout(timer);
+                        timer = null;
+                    }
+                    timer = setTimeout(updateCart, 2000)
                 });
             });
         },
