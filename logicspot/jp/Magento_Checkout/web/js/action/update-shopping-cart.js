@@ -27,25 +27,24 @@ define([
         },
 
         onQtyChange: function() {
-            var qtyItems = $(this.element).find('.control.qty');
+            var self = this,
+                qtyItems = $(this.element).find('.control.qty');
 
             qtyItems.each( function(i,el) {
                 var jsQtyAction = $(el).find('.js-qty-action'),
                     qtyInput = $(el).find('[data-role=cart-item-qty]');
-
 
                 jsQtyAction.on('click', function(e) {
                     var qty = qtyInput.val().trim(),
                         qty = parseInt(qty),
                         timer = null,
                         updateCart = function() {
-                            $("form.form-cart .action.update").trigger("click");
+                            $(self.element).find('.action.update').trigger('click');
                             timer = null;
                         };
 
                     if ($(this).hasClass('js-qty-action--up')) {
-                        console.log(qty);
-                        
+                        //console.log(qty);
                         qtyInput.val('' + (qty < 10 ? qty + 1 : qty));
                         if (timer) {
                             clearTimeout(timer);
@@ -56,8 +55,7 @@ define([
                         }
                     }
                     else if ($(this).hasClass('js-qty-action--down')) {
-                        console.log(qty);
-
+                        //console.log(qty);
                         qtyInput.val('' + (qty > 1 ? qty - 1 : qty));
 
                         if (timer) {
