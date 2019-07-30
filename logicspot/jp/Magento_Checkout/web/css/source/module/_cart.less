@@ -120,14 +120,25 @@
                 position: relative;
             }
         }
-
+        th.col {
+            padding: 0;
+            span {
+                display: inline-block;
+                transform: translateY(4px);
+                -webkit-transform: translateY(4px);
+                -moz-transform: translateY(4px);
+                -ms-transform: translateY(4px);
+            }
+        }
+        td.col {
+            padding: 44px 0 29px 0;
+        }
         .col {
-            padding-top: @indent__base;
-
             &.qty {
                 .input-text {
-                    margin-top: -5px;
                     &:extend(.abs-input-qty all);
+                    width: 70px;
+                    height: 60px;
                 }
 
                 .label {
@@ -146,8 +157,6 @@
             .col {
                 &.item {
                     display: block;
-                    min-height: 75px;
-                    padding: @indent__m 0 @indent__s 75px;
                     position: relative;
                 }
             }
@@ -155,6 +164,7 @@
 
         .actions-toolbar {
             &:extend(.abs-add-clearfix all);
+            margin: 0;
 
             > .action {
                 &:extend(button all);
@@ -164,6 +174,34 @@
 
                 &:last-child {
                     margin-right: 0;
+                }
+                &.action-edit {
+                    display: none;
+                }
+                &.action-delete {
+                    margin-top: 25px;
+                    background: none;
+                    border: none;
+                    font-weight: 400;
+                    padding: 3px 0;
+                    position: relative;
+                    
+                    &:after {
+                        content: '';
+                        width: 100%;
+                        height: 1px;
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                        background-color: @color-shark;
+                        transition: width 0.3s ease-in-out;
+                    }
+                    &:hover {
+                        color: @color-black;
+                        &:after {
+                            width: 0;
+                        }
+                    }
                 }
             }
         }
@@ -193,7 +231,8 @@
             &-item-name {
                 display: inline-block;
                 font-weight: @font-weight__regular;
-                margin-top: -6px;
+                margin: 15px 0;
+                line-height: 2.6rem;
             }
         }
 
@@ -223,6 +262,14 @@
             display: inline-block;
             margin: 0 0 @indent__base;
         }
+
+        // Price
+        .cart-price {
+            margin-top: 15px;
+            display: inline-block;
+            line-height: 2.6rem;
+        }
+
     }
 
     .cart-container {
@@ -291,8 +338,10 @@
     .order-items.table-wrapper {
         .col.price,
         .col.qty,
-        .col.subtotal,
         .col.msrp {
+            text-align: center;
+        }
+        .col.subtotal {
             text-align: right;
         }
     }
@@ -402,25 +451,11 @@
                 width: auto;
             }
 
-            .item {
-                .col {
-                    &.item {
-                        padding: 27px 8px @indent__s;
-                    }
-                }
-
-                &-actions {
-                    td {
-                        text-align: right;
-                    }
-                }
-            }
-
             .product {
                 &-item-photo {
                     display: table-cell;
                     max-width: 100%;
-                    padding-right: @indent__base;
+                    padding-right: 20px;
                     position: static;
                     vertical-align: top;
                     width: 1%;
@@ -431,13 +466,7 @@
                     vertical-align: top;
                     white-space: normal;
                     width: 99%;
-                }
-            }
-
-            .item-actions {
-                .actions-toolbar {
-                    text-align: left;
-                    &:extend(.abs-reset-left-margin-desktop all);
+                    max-width: 245px;
                 }
             }
         }
