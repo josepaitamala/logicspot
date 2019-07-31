@@ -1247,7 +1247,9 @@
     .abs-sidebar-totals {
         .mark {
             font-weight: @font-weight__regular;
-            padding-left: 4px;
+            padding-left: 0;
+            padding-right: 20px;
+            text-align: right;
 
             strong {
                 font-weight: @font-weight__regular;
@@ -1265,17 +1267,19 @@
         }
 
         .grand {
-            .mark,
-            .amount {
-                padding-top: @indent__base;
-            }
-
             .amount {
                 padding-right: 4px;
                 text-align: right;
 
                 strong {
                     font-weight: @font-weight__bold;
+                    font-size: 2rem;
+                    display: inline-block;
+                    transform: translateY(-3px);
+                    -webkit-transform: translateY(-3px);
+                    -moz-transform: translateY(-3px);
+                    -ms-transform: translateY(-3px);
+                    -o-transform: translateY(-3px);
                 }
             }
         }
@@ -1288,8 +1292,6 @@
             &-summary {
                 .mark,
                 .amount {
-                    .lib-css(border-top, @border-width__base solid @border-color__base);
-                    .lib-css(border-bottom, @border-width__base solid @border-color__base);
                     cursor: pointer;
                 }
 
@@ -1328,8 +1330,6 @@
 
             &-details {
                 display: none;
-                .lib-css(border-bottom, @border-width__base solid @border-color__base);
-
                 &.shown {
                     display: table-row;
                 }

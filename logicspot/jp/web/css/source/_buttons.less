@@ -14,6 +14,14 @@
     }
 
     .action.primary {
-        .lib-button-primary();
+        background-color: @color-cosmos;
+        border: none;
+        width: 100%;
+        font-size: 1.4rem;
+        letter-spacing: 0.5px;
+        .lib-css(transition, background-color 0.3s ease-in-out, 1);
+        &:hover {
+            background-color: @color-blizzard-blue;
+        }
     }
 }

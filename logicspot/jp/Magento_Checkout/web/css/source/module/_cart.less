@@ -10,9 +10,9 @@
 
     .checkout-cart-index {
         background-image: url('../images/bg.svg');
-        background-position: 0 0;
+        background-position: -280px -100px;
         background-repeat: no-repeat;
-        background-size: 60% auto;
+        background-size: 90% auto;
 
         .page-title-wrapper {
             text-align: center;
@@ -38,18 +38,20 @@
     //  Summary block
     .cart-summary {
         &:extend(.abs-add-box-sizing all);
-        .lib-css(background, @sidebar__background-color);
         margin-bottom: @indent__m;
-        padding: 1px 15px @indent__m;
 
         > .title {
-            display: block;
-            .lib-heading(h3);
+            display: none;
         }
 
         .block {
             &:extend(.abs-discount-block all);
             margin-bottom: 0;
+
+            &.shipping,
+            &.discount {
+                display: none;
+            }
 
             .item-options {
                 margin-left: 0;
@@ -90,12 +92,14 @@
             }
         }
         &:extend(.abs-adjustment-incl-excl-tax all);
+
+        .action.multicheckout {
+            display: none;
+        }
     }
 
     //  Totals block
     .cart-totals {
-        border-top: 1px solid @border-color__base;
-        padding-top: @indent__s;
         &:extend(.abs-sidebar-totals all);
 
         .table-wrapper {
@@ -319,8 +323,9 @@
             text-align: center;
 
             .action.primary {
-                &:extend(.abs-button-l all);
                 width: 100%;
+                line-height: 60px;
+                padding: 0;
             }
 
             .item {
@@ -462,6 +467,12 @@
             &:extend(.abs-shopping-cart-items-mobile all);
         }
     }
+
+    // Cart Empty 
+    .cart-empty {
+        text-align: center;
+        padding: 50px 0;
+    }
 }
 
 //
@@ -483,7 +494,9 @@
     .cart-summary {
         float: right;
         position: relative;
-        width: 23%;
+        width: 100%;
+        max-width: 330px;
+        margin-top: -50px;
 
         .actions-toolbar {
             .column.main & {
