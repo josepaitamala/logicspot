@@ -72,7 +72,7 @@ define([
                 qtyInput.on('keyup', function(e) {
                     if(timer) {
                         clearTimeout(timer);
-                        timer = null;
+                        timeout = null;
                     }
                     timer = setTimeout(updateCart, 2000)
                 });
