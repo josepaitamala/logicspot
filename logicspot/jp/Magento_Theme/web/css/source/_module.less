@@ -72,12 +72,6 @@
     //  Header
     //  ---------------------------------------------
 
-    .page-header {
-        .lib-css(background-color, @header__background-color);
-        border-bottom: 1px solid @border-color__base;
-        margin-bottom: @indent__base;
-    }
-
     .header {
         &.content {
             &:extend(.abs-add-clearfix all);
@@ -343,9 +337,6 @@
     }
 
     .page-header {
-        border: 0;
-        margin-bottom: 0;
-
         .header.panel {
             &:extend(.abs-add-clearfix-desktop all);
             padding-bottom: @indent__s;
