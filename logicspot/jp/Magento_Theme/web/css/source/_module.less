@@ -52,6 +52,12 @@
         .lib-css(background-color, @page__background-color);
     }
 
+    * {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+
     .page-wrapper {
         .lib-vendor-prefix-display(flex);
         .lib-vendor-prefix-flex-direction(column);
@@ -172,10 +178,7 @@
 
     .footer {
         &.content {
-            border-top: 1px solid @border-color__base;
-            margin-top: 25px;
             padding-bottom: 25px;
-            padding-top: 25px;
 
             ul {
                 &:extend(.abs-reset-list all);
